@@ -1,7 +1,5 @@
 node default {
-  file {'/root/README':
-   ensure  => file,
-   content => 'this is a readme',
-   owner   => 'root',
-   }
+  }
+  node 'automachine.eastus.cloudapp.azure.com' {
+    include role::master_server
 }
