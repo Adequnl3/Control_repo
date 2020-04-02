@@ -4,7 +4,15 @@ node default {
     content => 'This is a readme',
     owner   => 'root',
    }
-  }
+}
   node 'automachine.eastus.cloudapp.azure.com' {
     include role::master_server
-}
+  }
+
+node /^web/ {
+  include role::app_server
+ }
+ 
+ node /^db/ {
+  include role::db_server
+ }
