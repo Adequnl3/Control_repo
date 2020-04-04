@@ -1,13 +1,12 @@
 node default {
-  file { '/root/README':
-    ensure => file,
-    content => 'This is a readme',
-    owner   => 'root',
-   }
 }
-  node 'automachine.eastus.cloudapp.azure.com' {
+  node 'Automachine.tkdc0izrtttuvoda1kfrywecyc.bx.internal.cloudapp.net' {
     include role::master_server
-  }
+    file { '/root/README':
+     ensure => file,
+     content =>$fqdn,
+   }
+ }
 
 node /^web/ {
   include role::app_server
